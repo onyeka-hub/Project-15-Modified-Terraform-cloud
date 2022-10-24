@@ -10,15 +10,6 @@ resource "aws_security_group" "nginx-sg" {
 }
 
 # security gruop rule for nginx security group
-resource "aws_security_group_rule" "inbound-nginx-http" {
-  type                     = "ingress"
-  from_port                = 80
-  to_port                  = 80
-  protocol                 = "tcp"
-  security_group_id        = aws_security_group.nginx-sg.id
-  source_security_group_id = aws_security_group.ext-alb-sg.id
-}
-
 resource "aws_security_group_rule" "inbound-nginx-https" {
   type                     = "ingress"
   from_port                = 443
