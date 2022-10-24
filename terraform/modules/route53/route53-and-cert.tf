@@ -13,6 +13,7 @@ resource "aws_route53_record" "onyeka" {
       name   = dvo.resource_record_name
       record = dvo.resource_record_value
       type   = dvo.resource_record_type
+      zone_id = dvo.domain_name == "onyeka.ga" ? data.aws_route53_zone.onyeka_ga.zone_id : data.aws_route53_zone.onyeka_com.zone_id
     }
   }
 
