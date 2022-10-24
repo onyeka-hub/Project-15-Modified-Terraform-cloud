@@ -23,4 +23,41 @@ In the **Project-15-Modified**, we had to use an ami image-id and manually confi
 
 In summary, the ami folder will contain the .pkr.hcl files and the shell scripts for all the servers, which will be used to build the ami, then we will copy the ami-id and update our terraform .auto.tfvars file, run the terraform and then use the codes inside the ansible folder to configure the servers using ansible.
 
+## Action Plan for this project
+
+1. Build images using packer
+
+### Using Packer
+cd into the ami folder where you have .pkr.hcl files (you can use the vscode terminal or windows terminal)
+Run the following commands
+```
+packer init
+packer fmt
+packer build bastion.pkr.hcl
+```
+Repeat the build for the other files
+
+2. confirm the AMIs in the console
+
+3. update terrafrom script with new ami IDs generated from packer build
+
+4. create terraform cloud account and backend
+
+5. run terraform script
+
+6. update ansible script with values from teraform output
+
+    - RDS endpoints for wordpress and tooling
+    - Database name, password and username for wordpress and tooling
+    - Access point ID for wordpress and tooling
+    - Internal load balancee DNS for nginx reverse proxy
+
+7. run ansible script
+
+8. check the website
+
+
+
+
+
 

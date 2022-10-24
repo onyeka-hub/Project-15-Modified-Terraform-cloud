@@ -30,7 +30,7 @@ resource "aws_launch_template" "nginx-launch-template" {
   # user_data = filebase64("${path.module}/bin/nginx.sh")
 }
 
-# create auto scaling group for bastion
+# create auto scaling group for nginx
 
 resource "aws_autoscaling_group" "nginx-asg" {
   name                      = "nginx-asg"
