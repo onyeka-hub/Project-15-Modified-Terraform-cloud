@@ -21,9 +21,6 @@ variable "compute_private_subnet" {
 variable "data_private_subnet" {
   type = list(any)
 }
-variable "image_id" {
-  type = string
-}
 variable "max_size" {
   type = number
 }
