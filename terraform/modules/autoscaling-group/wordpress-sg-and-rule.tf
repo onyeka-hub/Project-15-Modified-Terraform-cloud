@@ -52,7 +52,7 @@ resource "aws_autoscaling_group" "wordpress-asg" {
 
   tag {
     key                 = "Name"
-    value               = "wordpress-server"
+    value               = "wordpress_server"
     propagate_at_launch = true
   }
 }

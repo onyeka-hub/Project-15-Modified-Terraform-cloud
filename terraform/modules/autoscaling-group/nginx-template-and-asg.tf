@@ -52,7 +52,7 @@ resource "aws_autoscaling_group" "nginx-asg" {
 
   tag {
     key                 = "Name"
-    value               = "nginx-server"
+    value               = "nginx_server"
     propagate_at_launch = true
   }
 }

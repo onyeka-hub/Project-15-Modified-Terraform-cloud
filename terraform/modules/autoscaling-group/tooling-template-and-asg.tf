@@ -52,7 +52,7 @@ resource "aws_autoscaling_group" "tooling-asg" {
 
   tag {
     key                 = "Name"
-    value               = "tooling-server"
+    value               = "tooling_server"
     propagate_at_launch = true
   }
 }
