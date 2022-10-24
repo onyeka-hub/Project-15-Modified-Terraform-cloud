@@ -1,13 +1,10 @@
-variable "image_id" {
-  type = string
-}
 variable "instance_type" {
   type = string
 }
 variable "key_name" {
   type = string
 }
-variable "nginx_image_id" {
+variable "nginx_ami" {
   type = string
 }
 variable "max_size" {
@@ -44,3 +41,7 @@ variable "wordpress_subnet" {}
 variable "wordpress_subnet2" {}
 
 variable "aws_availability_zones" {}
+
+variable "bastion_ami" {}
+
+variable "web_ami" {}

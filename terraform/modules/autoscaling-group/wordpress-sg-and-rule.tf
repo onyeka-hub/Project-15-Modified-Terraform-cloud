@@ -2,7 +2,7 @@
 resource "aws_launch_template" "wordpress-launch-template" {
   name = "wordpress-lt"
 
-  image_id = var.image_id
+  image_id = var.web_ami
 
   instance_initiated_shutdown_behavior = "terminate"
 
@@ -27,7 +27,7 @@ resource "aws_launch_template" "wordpress-launch-template" {
     }
   }
 
-  user_data = filebase64("${path.module}/bin/wordpress.sh")
+  # user_data = filebase64("${path.module}/bin/wordpress.sh")
 }
 
 # create auto scaling group for wordpress

@@ -7,7 +7,7 @@ resource "random_shuffle" "az_list" {
 resource "aws_launch_template" "bastion-launch-template" {
   name = "bastion-lt"
 
-  image_id = var.image_id
+  image_id = var.bastion_ami
 
   instance_initiated_shutdown_behavior = "terminate"
 
@@ -32,7 +32,7 @@ resource "aws_launch_template" "bastion-launch-template" {
     }
   }
 
-  user_data = filebase64("${path.module}/bin/bastion.sh")
+  #   user_data = filebase64("${path.module}/bin/bastion.sh")
 }
 
 # create auto scaling group for bastion

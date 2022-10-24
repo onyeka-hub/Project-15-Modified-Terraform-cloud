@@ -2,7 +2,7 @@
 resource "aws_launch_template" "nginx-launch-template" {
   name = "nginx-lt"
 
-  image_id = var.nginx_image_id
+  image_id = var.nginx_ami
 
   instance_initiated_shutdown_behavior = "terminate"
 
@@ -27,7 +27,7 @@ resource "aws_launch_template" "nginx-launch-template" {
     }
   }
 
-  user_data = filebase64("${path.module}/bin/nginx.sh")
+  # user_data = filebase64("${path.module}/bin/nginx.sh")
 }
 
 # create auto scaling group for bastion

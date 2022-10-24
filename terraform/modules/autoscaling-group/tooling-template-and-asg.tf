@@ -2,7 +2,7 @@
 resource "aws_launch_template" "tooling-launch-template" {
   name = "tooling-lt"
 
-  image_id = var.image_id
+  image_id = var.web_ami
 
   instance_initiated_shutdown_behavior = "terminate"
 
@@ -28,7 +28,7 @@ resource "aws_launch_template" "tooling-launch-template" {
     }
   }
 
-  user_data = filebase64("${path.module}/bin/tooling.sh")
+  # user_data = filebase64("${path.module}/bin/tooling.sh")
 }
 
 # create auto scaling group for bastion

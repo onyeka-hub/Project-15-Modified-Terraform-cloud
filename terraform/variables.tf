@@ -1,5 +1,5 @@
 variable "aws_region" {
-  type = string
+  type    = string
   default = "us-east-2"
 }
 
@@ -47,4 +47,8 @@ variable "password" {}
 
 variable "multi_az" {}
 
-variable "nginx_image_id" {}
+variable "nginx_ami" {}
+
+variable "bastion_ami" {}
+
+variable "web_ami" {}

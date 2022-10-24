@@ -18,7 +18,9 @@ module "security" {
 
 module "autoscaling-groups" {
   source                 = "./modules/autoscaling-group"
-  image_id               = var.image_id
+  bastion_ami            = var.bastion_ami
+  nginx_ami              = var.nginx_ami
+  web_ami                = var.web_ami
   nginx_image_id         = var.nginx_image_id
   instance_type          = var.instance_type
   key_name               = var.key_name
