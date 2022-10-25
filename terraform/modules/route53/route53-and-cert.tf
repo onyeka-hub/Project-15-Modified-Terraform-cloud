@@ -1,9 +1,24 @@
-# The entire section create a certificate, public zone, and validate the certificate using DNS method
+# The entire section create a hosted zone, certificate, validate the certificate using DNS method and creates records
+
+# create hosted zone
+resource "aws_route53_zone" "primary" {
+  name          = "onyeka.ga"
+  force_destroy = "true"
+
+  tags = {
+    Name = format("%s-zone", var.name)
+  }
+}
 
 # Create the certificate using a wildcard for all the domains created in onyeka.ga
 resource "aws_acm_certificate" "onyeka" {
   domain_name       = "*.onyeka.ga"
   validation_method = "DNS"
+}
+
+data "aws_route53_zone" "onyeka" {
+  name         = "onyeka.ga"
+  private_zone = false
 }
 
 # selecting validation method
@@ -21,7 +36,7 @@ resource "aws_route53_record" "onyeka" {
   records         = [each.value.record]
   ttl             = 60
   type            = each.value.type
-  zone_id         = aws_route53_zone.primary.zone_id
+  zone_id         = data.aws_route53_zone.onyeka.zone_id
 }
 
 # validate the certificate through DNS method
@@ -29,18 +44,6 @@ resource "aws_acm_certificate_validation" "onyeka" {
   certificate_arn         = aws_acm_certificate.onyeka.arn
   validation_record_fqdns = [for record in aws_route53_record.onyeka : record.fqdn]
 }
-
-
-# create hosted zone
-resource "aws_route53_zone" "primary" {
-  name          = "onyeka.ga"
-  force_destroy = "true"
-
-  tags = {
-    Name = format("%s-zone", var.name)
-  }
-}
-
 
 # create records
 resource "aws_route53_record" "tooling" {
