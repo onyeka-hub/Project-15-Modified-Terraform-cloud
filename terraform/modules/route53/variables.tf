@@ -1,5 +1,5 @@
 variable "name" {}
 
-variable "alias-name" {}
+# variable "alias-name" {}
 
-variable "zone_id" {}
+# variable "zone_id" {}

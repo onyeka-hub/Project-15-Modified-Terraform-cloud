@@ -76,6 +76,6 @@
 module "route53" {
   source     = "./modules/route53"
   name       = var.name
-  alias-name = module.loadbalancer.alias-name
-  zone_id    = module.loadbalancer.zone_id
+  # alias-name = module.loadbalancer.alias-name
+  # zone_id    = module.loadbalancer.zone_id
 }
