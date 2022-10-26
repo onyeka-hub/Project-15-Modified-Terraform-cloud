@@ -1,14 +1,14 @@
 # The entire section create a hosted zone, certificate, validate the certificate using DNS method and creates records
 
-# # create hosted zone
-# resource "aws_route53_zone" "primary" {
-#   name          = "onyeka.ga"
-#   force_destroy = "true"
+# create hosted zone
+resource "aws_route53_zone" "primary" {
+  name          = "onyeka.ga"
+  force_destroy = "true"
 
-#   tags = {
-#     Name = format("%s-zone", var.name)
-#   }
-# }
+  tags = {
+    Name = format("%s-zone", var.name)
+  }
+}
 
 # Create the certificate using a wildcard for all the domains created in onyeka.ga
 resource "aws_acm_certificate" "onyeka" {
