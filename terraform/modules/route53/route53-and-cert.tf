@@ -42,7 +42,7 @@ resource "aws_route53_record" "onyeka" {
 # validate the certificate through DNS method
 resource "aws_acm_certificate_validation" "onyeka" {
   certificate_arn         = aws_acm_certificate.onyeka.arn
-  validation_record_fqdns = [for record in aws_route53_record.onyeka : record.fqdn]
+  validation_record_fqdns = [for record in aws_route53_record.onyeka_record : record.fqdn]
 }
 
 # create records
