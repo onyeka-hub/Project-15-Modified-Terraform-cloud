@@ -47,7 +47,7 @@ resource "aws_acm_certificate_validation" "onyeka" {
 
 # create records
 resource "aws_route53_record" "tooling" {
-  zone_id = data.aws_route53_zone.primary.zone_id
+  zone_id = data.aws_route53_zone.onyeka.zone_id
   name    = "tooling.onyeka.ga"
   type    = "A"
 
@@ -59,7 +59,7 @@ resource "aws_route53_record" "tooling" {
 }
 
 resource "aws_route53_record" "wordpress" {
-  zone_id = data.aws_route53_zone.primary.zone_id
+  zone_id = data.aws_route53_zone.onyeka.zone_id
   name    = "wordpress.onyeka.ga"
   type    = "A"
 
